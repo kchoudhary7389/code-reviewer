@@ -20,9 +20,12 @@ function App() {
   const reviewCode = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:4000/ai/get-review", {
-        code,
-      });
+      const response = await axios.post(
+        "https://code-reviewer-m0fe.onrender.com/ai/get-review",
+        {
+          code,
+        }
+      );
       console.log(response);
       if (response.status === 200) {
         setReview(response.data.response);
@@ -36,12 +39,14 @@ function App() {
 
   return (
     <div className="bg-gray-800 w-full h-screen">
-      <h1 className="uppercase text-center p-2 text-2xl text-white">code reviewer</h1>
+      <h1 className="uppercase text-center p-2 text-2xl text-white">
+        code reviewer
+      </h1>
       <div className="w-full h-[92%] bg-gray-800 flex p-2 gap-2">
         <div className="left w-1/2 bg-gray-900 p-2 rounded-xl relative overflow-auto">
           <div className="code w-full h-full bg-gray-900">
             <Editor
-            placeholder="Enter your Code for review"
+              placeholder="Enter your Code for review"
               value={code}
               onValueChange={(code) => setCode(code)}
               highlight={(code) =>
