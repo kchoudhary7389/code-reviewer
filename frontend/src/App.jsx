@@ -6,7 +6,7 @@ import axios from "axios";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
-import "./app.css";
+import "./App.css";
 
 function App() {
   const [code, setCode] = useState(``);
